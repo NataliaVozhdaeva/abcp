@@ -12,11 +12,12 @@ html {
 
 * {
   box-sizing: border-box;
+
+  transition: 0.3s;
 }
 
 .body {
   max-width: 1200px;
-  min-height: 100vh;
   margin: 0 auto;
   padding: 0 15px;
 
@@ -30,8 +31,9 @@ html {
 .wrapper {
   position: relative;
 
-  display: flex;
-  flex-direction: column;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 100px 1fr 100px;
   row-gap: 15px;
 }
 
@@ -48,4 +50,87 @@ footer {
 .main {
   display: flex;
   flex-direction: column;
+}
+
+.btn {
+  padding: 8px 15px;
+
+  color: var(--white);
+  font-family: 'Roboto';
+  font-size: 20px;
+  line-height: 23px;
+
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  filter: hue-rotate(33deg);
+}
+
+.link {
+  color: var(--white);
+  text-decoration: none;
+}
+
+.btn-openPopupBtn {
+  background: var(--btn-blue);
+}
+
+.popup {
+  display: none;
+}
+
+/* 
+Можно было бы сделать кнопку открытия поп-апа кастомным радиобаттоном и также настроить открытие через комбинированные селекторы:
+потребовалось бы больше кода на кастомизацию радиобаттона, но выиграла бы семантика. Зависит от цели.
+ */
+
+.popup:target {
+  display: flex;
+
+  animation: show 0.3s ease;
+  animation-fill-mode: forwards;
+}
+
+.popup {
+  position: absolute;
+  top: calc(50% - 200px);
+  left: calc(50% - 200px);
+
+  display: none;
+
+  width: 400px;
+  height: 400px;
+  padding: 15px;
+
+  background: var(--white);
+}
+
+.btn-closePopupBtn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+  background-color: var(--bg-blue);
+}
+
+.popup-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  font-size: 53px;
+  line-height: 62px;
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

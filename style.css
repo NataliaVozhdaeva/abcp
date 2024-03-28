@@ -1,0 +1,51 @@
+:root {
+  --bg-blue: #7faff6;
+  --bg-light_blue: #c0dbd9;
+  --bg-green: #b3f95a;
+  --white: #fff;
+  --btn-blue: #a5c7f9;
+}
+
+html {
+  background-color: var(--white);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.body {
+  max-width: 1200px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 0 15px;
+
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+
+  background: var(--bg-light_blue);
+}
+
+.wrapper {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+
+.header,
+footer {
+  display: flex;
+
+  height: 100px;
+  padding: 30.5px 30px;
+
+  background: var(--bg-blue);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+}

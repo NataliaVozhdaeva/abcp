@@ -1,7 +1,8 @@
 :root {
   --bg-blue: #7faff6;
   --bg-light_blue: #c0dbd9;
-  --bg-green: #b3f95a;
+  --bg-green: #8ad191;
+  --bg-light_green: #b3f95a;
   --white: #fff;
   --btn-blue: #a5c7f9;
 }
@@ -24,6 +25,8 @@ html {
   font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 400;
+  font-size: 53px;
+  line-height: 62px;
 
   background: var(--bg-light_blue);
 }
@@ -74,6 +77,13 @@ footer {
   text-decoration: none;
 }
 
+.list {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
 .btn-openPopupBtn {
   background: var(--btn-blue);
 }
@@ -121,9 +131,40 @@ footer {
   justify-content: center;
   align-items: center;
   width: 100%;
+}
 
-  font-size: 53px;
-  line-height: 62px;
+/* если бы контент был специфическим для каждого элемента, можно было бы с nth-child его задавать, но тут хватит счетчика */
+
+.promo {
+  counter-reset: promo;
+
+  display: grid;
+  grid-template-columns: 390px 590px 160px;
+  gap: 15px;
+
+  background: var(--bg-light_green);
+}
+
+.promo-el {
+  counter-increment: promo;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 198px;
+
+  color: var(--white);
+
+  background-color: var(--bg-green);
+}
+
+.promo-el:nth-of-type(4) {
+  grid-column: span 2;
+}
+
+.promo-el::before {
+  content: counter(promo);
 }
 
 @keyframes show {
